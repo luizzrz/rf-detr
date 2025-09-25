@@ -113,7 +113,6 @@ def make_coco_transforms(image_set, resolution, multi_scale=False, expanded_scal
 
     if image_set == 'train':
         return T.Compose([
-            T.RandomHorizontalFlip(),
             T.RandomSelect(
                 T.RandomResize(scales, max_size=1333),
                 T.Compose([
@@ -159,7 +158,6 @@ def make_coco_transforms_square_div_64(image_set, resolution, multi_scale=False,
 
     if image_set == 'train':
         return T.Compose([
-            T.RandomHorizontalFlip(),
             T.RandomSelect(
                 T.SquareResize(scales),
                 T.Compose([
